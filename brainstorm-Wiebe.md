@@ -1,0 +1,1 @@
+Ik wil erg graag leren om te gaan met WordPress en kijken hoe het werkt om daar een webshop plugin mee te verbinden en te gebruiken.
