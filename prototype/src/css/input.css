@@ -5,6 +5,7 @@
     --color-primary : #325832;
     --color-header-accent : #E4BF9A;
 
+}
 @font-face {
   font-family: 'Poppins';
   src: url('../fonts/Poppins-Regular.ttf') format('truetype');
