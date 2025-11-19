@@ -37,6 +37,10 @@ h6 {
   font-family: var(--font-family-heading);
 }
 
+.font-heading {
+  font-family: var(--font-family-heading);
+}
+
 .outl {
   border: solid 2px cyan;
 }
