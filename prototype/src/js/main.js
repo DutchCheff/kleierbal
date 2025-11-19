@@ -1,3 +1,4 @@
-import { loadComponent } from "./loadComponents";
+import { loadComponent } from "./loadComponents.js";
 
-await loadComponent('navbar', './components/navbar.html');
+await loadComponent('navbar', './src/components/navbar.html');
+await loadComponent('footer', './src/components/footer.html')
