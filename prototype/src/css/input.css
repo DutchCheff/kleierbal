@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-    --color-secondary : #6F1211;
-    --color-primary : #325832;
-    --color-header-accent : #E4BF9A;
+  --color-secondary: #6F1211;
+  --color-primary: #325832;
+  --color-header-accent: #E4BF9A;
+  --color-back-gradient: #C00E0C;
 
+  --font-family-primary: Poppins, system-ui, sans-serif;
+  --font-family-heading: Futura, Georgia, serif;
 }
+
 @font-face {
   font-family: 'Poppins';
   src: url('../fonts/Poppins-Regular.ttf') format('truetype');
@@ -18,4 +22,21 @@
   src: url('../fonts/Futura Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
+}
+
+body {
+  font-family: var(--font-family-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+}
+
+.outl {
+  border: solid 2px cyan;
 }
