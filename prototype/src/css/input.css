@@ -5,4 +5,16 @@
     --color-primary : #325832;
     --color-header-accent : #E4BF9A;
 
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura Bold';
+  src: url('../fonts/Futura Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
 }
