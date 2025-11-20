@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - drag
+  - boom
   layers:
   - Default
   - TransparentFX

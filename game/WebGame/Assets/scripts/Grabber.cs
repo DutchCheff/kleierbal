@@ -15,23 +15,29 @@ public class Grabber : MonoBehaviour
 
                 if(hit.collider != null)
                 {
-                    if(!hit.collider.CompareTag("drag"))
+                    if(hit.collider.CompareTag("drag"))
                     {
-                        return;
+                        selectedOject = hit.collider.gameObject;
+                        Cursor.visible = false;
+                        gameObject.GetComponent<BoxCollider>().enabled = false;
                     }
-
-                    selectedOject = hit.collider.gameObject;
-                    Cursor.visible = false;
                 }
             }
             else
             {
+                RaycastHit hit = CastRay();
                 Vector3 posittion = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(selectedOject.transform.position).z);
                 Vector3 worldPosition = Camera.main.ScreenToWorldPoint(posittion);
                 selectedOject.transform.position = new Vector3(worldPosition.x, worldPosition.y, worldPosition.z);
 
                 selectedOject = null;
                 Cursor.visible = true;
+                gameObject.GetComponent<BoxCollider>().enabled = true;
+
+                if (hit.collider.CompareTag("boom"))
+                {
+                    SetBoomLocation();
+                }
             }
         }
 
@@ -65,6 +71,6 @@ public class Grabber : MonoBehaviour
 
     public void SetBoomLocation()
     {
-        transform.position = new Vector3(-1, 2, -2);
+        transform.position = new Vector3(-1 , 2, -2);
     }
 }
