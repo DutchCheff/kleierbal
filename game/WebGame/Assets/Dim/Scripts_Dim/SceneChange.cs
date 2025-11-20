@@ -6,25 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartGame()
     {
         SceneManager.LoadScene("SampleScene");
     }
 
-    public void ChristmasIsOver()
+    public void MainMenu()
     {
-        Debug.Log("Next Scene");
+        SceneManager.LoadScene("StartMenu");
     }
 }
