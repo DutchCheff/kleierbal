@@ -30,7 +30,7 @@ public class Grabber : MonoBehaviour
                 selectedOject.transform.position = new Vector3(worldPosition.x, worldPosition.y, worldPosition.z);
 
                 selectedOject = null;
-                Cursor.visible = true;s
+                Cursor.visible = true;
             }
         }
 
