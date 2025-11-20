@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,5 +21,10 @@ public class SceneChange : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("SampleScene");
+    }
+
+    public void ChristmasIsOver()
+    {
+        Debug.Log("Next Scene");
     }
 }
