@@ -21,13 +21,26 @@
                     </div>
                 </div>
                 <div
-                    class="bg-primary rounded-3xl py-6 flex flex-col justify-center gap-4 items-center text-white shadow-lg">
+                    class="bg-linear-to-r from-primary to-primary-gradient rounded-3xl py-6 flex flex-col justify-center gap-4 items-center text-white shadow-lg">
                     <h1 class="text-4xl">Kerst Eierbal</h1>
-                    <p class="text-3xl">€12,50</p>
-                    <a href="checkout.html"
-                        class=" text-xl bg-secondary hover:bg-secondary-gradient cursor-pointer transition-all ease-in-out duration-300 py-3 px-3 rounded-3xl shadow-lg">
-                        Voeg to aan winkelwagen
-                    </a>
+                    <p id="price" class="text-3xl">€12,50</p>
+                    <div class="w-full flex justify-center items-center gap-4">
+                        <div class="p-2 text-xl cursor-pointer duration-300 ease-in-out transition-all hover:scale-105"
+                            id="minus">
+                            <img class="w-10" src="./src/img/FileMinus.svg" alt="">
+                        </div>
+                        <div id="ammount" class="bg-primary-gradient py-2 px-4 rounded-3xl text-xl">
+                            1
+                        </div>
+                        <div class="p-2 text-x cursor-pointer duration-300 ease-in-out transition-all hover:scale-105"
+                            id="plus">
+                            <img class="w-10" src="./src/img/FilePlus.svg" alt="">
+                        </div>
+                        <a href="checkout.html"
+                            class=" text-xl bg-secondary hover:bg-secondary-gradient cursor-pointer transition-all ease-in-out duration-300 p-3 rounded-3xl shadow-lg">
+                            Voeg toe
+                        </a>
+                    </div>
                 </div>
             </div>
             <div
