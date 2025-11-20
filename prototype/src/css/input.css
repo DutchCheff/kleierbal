@@ -4,7 +4,9 @@
   --color-secondary: #6F1211;
   --color-primary: #325832;
   --color-header-accent: #E4BF9A;
-  --color-back-gradient: #C00E0C;
+  --color-secondary-gradient: #C00E0C;
+  --color-primary-gradient: #4F8E54;
+
 
   --font-family-primary: Poppins, system-ui, sans-serif;
   --font-family-heading: Futura, Georgia, serif;
@@ -43,4 +45,8 @@ h6 {
 
 .outl {
   border: solid 2px cyan;
+}
+
+.shadow-top-lg {
+  box-shadow: 0 -10px 15px -3px rgb(0 0 0 / 0.1), 0 -4px 6px -4px rgb(0 0 0 / 0.1);
 }
