@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Grabber : MonoBehaviour
@@ -60,5 +61,10 @@ public class Grabber : MonoBehaviour
         Physics.Raycast(worldMousePosNear, worldMousePosFar - worldMousePosNear, out hit);
 
         return hit;
+    }
+
+    public void SetBoomLocation()
+    {
+        transform.position = new Vector3(-1, 2, -2);
     }
 }
