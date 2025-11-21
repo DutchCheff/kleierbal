@@ -1,4 +1,7 @@
 Feedback website:
+Geen doneer slider maar zelf hoeveelheid invoeren
+een rand om de foto van de shop pagina
+geen kleur op achtergrond maar meer wit
 
 
 Feedback game:
