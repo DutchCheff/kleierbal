@@ -21,8 +21,18 @@
                         <input type="text" class="bg-white/70 rounded-xl w-2/3 text-black px-2 py-1 focus:outline-none">
                         <label for="surName" class="text-white">Achternaam</label>
                         <input type="text" class="bg-white/70 rounded-xl w-2/3 text-black px-2 py-1 focus:outline-none">
+                        <label for="email" class="text-white">E-mailadres</label>
+                        <input type="email"
+                            class="bg-white/70 rounded-xl w-2/3 text-black px-2 py-1 focus:outline-none">
                         <label for="pickup" class="text-white">Afhaal Locatie</label>
-                        <input type="text" class="bg-white/70 rounded-xl text-black px-2 py-1 focus:outline-none">
+                        <select name="locaties" id="locaties"
+                            class="bg-white/70 rounded-xl w-2/3 text-black px-2 py-1 focus:outline-none">
+                            <option value="0" selected disabled>Kies locatie</option>
+                            <option value="1">Winschoten</option>
+                            <option value="2">Groningen</option>
+                            <option value="3">Stadskanaal</option>
+                            <option value="4">Hoogezand</option>
+                        </select>
                     </form>
                 </div>
                 <div
@@ -31,12 +41,14 @@
                         <p>Kerst Eierbal <span id="ammountBal">1</span></p>
                         <p>BTW 9%</p>
                         <p>Donatie</p>
+                        <p class="hidden" id="verzenden">Verzendkosten</p>
                         <p>Totaal</p>
                     </div>
                     <div class="pe-10 flex flex-col gap-3">
                         <p id="priceBal"></p>
                         <p id="BTW"></p>
                         <p id="donatieBedrag"></p>
+                        <p id="verzendKosten" class="hidden"></p>
                         <p id="totaalBedrag"></p>
                     </div>
                 </div>
@@ -52,18 +64,18 @@
                         <div class="flex justify-between">
                             <div class="flex flex-col gap-2">
                                 <label for="street">Straat & Huisnummer</label>
-                                <input type="text"
+                                <input id="streetInput" type="text"
                                     class="bg-white/70 rounded-xl text-black px-2 py-1 focus:outline-none">
                             </div>
                             <div class="flex flex-col gap-2">
                                 <label for="zipcode">Postcode</label>
-                                <input type="text"
+                                <input id="zipcodeInput" type="text"
                                     class="bg-white/70 rounded-xl text-black px-2 py-1 focus:outline-none">
                             </div>
                         </div>
                         <div class="flex flex-col gap-2">
                             <label for="plaats">Plaats</label>
-                            <input type="text"
+                            <input id="cityInput" type="text"
                                 class="bg-white/70 rounded-xl text-black px-2 py-1 focus:outline-none w-116">
                         </div>
                     </form>
@@ -84,12 +96,87 @@
                         </div>
                     </div>
                 </div>
-                <button
+                <button id="bestelButton"
                     class="bg-secondary hover:bg-secondary-gradient ease-in-out duration-300 text-white text-xl font-bold py-3 px-8 rounded-xl transition-colors cursor-pointer">Bestel</button>
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div id="orderModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center gap-4 z-50">
+        <div class="bg-linear-to-b from-secondary-gradient to-secondary px-24 py-30 rounded-3xl shadow-lg text-center">
+            <p class="text-4xl text-white font-bold font-heading">Bestelling verwerkt!!</p>
+            <p id="deliveryMessage" class="text-4xl text-white font-bold font-heading">U ontvangt een mailtje zodra het
+                pakket klaar ligt</p>
+        </div>
+    </div>
+
     <div id="footer"></div>
+
+    <script>
+        // Modal functionality
+        const bestelButton = document.getElementById('bestelButton');
+        const orderModal = document.getElementById('orderModal');
+        const deliveryMessage = document.getElementById('deliveryMessage');
+        const streetInput = document.getElementById('streetInput');
+        const zipcodeInput = document.getElementById('zipcodeInput');
+        const cityInput = document.getElementById('cityInput');
+        const verzendKostenLabel = document.getElementById('verzenden');
+        const verzendKostenElement = document.getElementById('verzendKosten');
+        const shippingCost = 10.00;
+
+        // Function to check if address is filled
+        function checkAddressAndUpdateShipping() {
+            const hasAddress = streetInput.value.trim() !== '' &&
+                zipcodeInput.value.trim() !== '' &&
+                cityInput.value.trim() !== '';
+
+            if (hasAddress) {
+                // Show shipping costs
+                verzendKostenLabel.classList.remove('hidden');
+                verzendKostenElement.classList.remove('hidden');
+                verzendKostenElement.textContent = '€10,00';
+            } else {
+                // Hide shipping costs
+                verzendKostenLabel.classList.add('hidden');
+                verzendKostenElement.classList.add('hidden');
+                verzendKostenElement.textContent = '';
+            }
+        }
+
+        // Add event listeners to address inputs
+        streetInput.addEventListener('input', checkAddressAndUpdateShipping);
+        zipcodeInput.addEventListener('input', checkAddressAndUpdateShipping);
+        cityInput.addEventListener('input', checkAddressAndUpdateShipping);
+
+        bestelButton.addEventListener('click', () => {
+            // Check if shipping address is filled in
+            const hasAddress = streetInput.value.trim() !== '' &&
+                zipcodeInput.value.trim() !== '' &&
+                cityInput.value.trim() !== '';
+
+            // Update message based on whether address is filled
+            if (hasAddress) {
+                deliveryMessage.textContent = 'U ontvangt een mailtje zodra het pakket wordt verstuurd';
+            } else {
+                deliveryMessage.textContent = 'U ontvangt een mailtje zodra het pakket klaar ligt';
+            }
+
+            orderModal.classList.remove('hidden');
+
+            // Auto-close modal after 2 seconds
+            setTimeout(() => {
+                orderModal.classList.add('hidden');
+            }, 4000);
+        });
+
+        // Close modal when clicking outside
+        orderModal.addEventListener('click', (e) => {
+            if (e.target === orderModal) {
+                orderModal.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 
 </html>
